@@ -12,13 +12,21 @@
         body {
             display: flex;
             flex-direction: column; /* لعرض الأيقونة والنص عموديًا */
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* ارتفاع الصفحة كامل */
+            justify-content: flex-start; /* محاذاة العناصر لأعلى */
+            align-items: center; /* محاذاة العناصر في الوسط أفقيًا */
+            min-height: 100vh; /* ارتفاع الصفحة كامل */
             margin: 0;
             background-color: black; /* لون خلفية */
             font-family: 'Poppins', sans-serif; /* تعيين خط Poppins لبقية النص */
-            position: relative; /* لجعل العناصر السفلية متمركزة */
+            overflow: hidden; /* منع التمرير */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* محاذاة العناصر لأعلى */
+            flex-grow: 1; /* لملء المساحة المتبقية في الصفحة */
+            padding-top: 40px; /* إضافة مسافة من أعلى الصفحة */
         }
         .material-symbols-outlined {
             font-variation-settings:
@@ -27,18 +35,17 @@
                 'GRAD' 0,
                 'opsz' 96; /* حجم الأيقونة */
             font-size: 96px; /* حجم الأيقونة */
-            margin-top: -400px; /* رفع الأيقونة */
             color: yellow; /* لون الأيقونة */
         }
         .message {
-            margin-top: 20px; /* مسافة بين الأيقونة والنص */
+            margin-top: 10px; /* تقليل المسافة بين الأيقونة والنص */
             font-size: 24px; /* حجم خط النص */
             color: Yellow; /* لون النص أبيض */
             font-weight: 900; /* تعيين وزن الخط إلى 900 */
             text-align: center; /* محاذاة النص إلى المركز */
         }
         .additional-message {
-            margin-top: 10px; /* مسافة بين النصين */
+            margin-top: 5px; /* تقليل المسافة بين النصين */
             font-size: 20px; /* حجم خط النص الإضافي */
             color: white; /* لون النص أبيض */
             font-family: 'Amiri', serif; /* تعيين خط Amiri للنص الإضافي */
@@ -67,27 +74,36 @@
             font-size: 24px; /* حجم الأيقونة */
         }
         .footer {
-            position: absolute; /* جعل النص في الأسفل */
-            bottom: 10px; /* مسافة من الأسفل */
+            position: relative; /* لجعل النص في الأسفل */
+            bottom: 0; /* مسافة من الأسفل */
             left: 50%; /* محاذاة للنصف */
             transform: translateX(-50%); /* نقل النص لوسط الصفحة */
             color: white; /* لون النص */
             font-size: 16px; /* حجم خط النص */
             text-align: center; /* محاذاة النص إلى المركز */
+            margin-top: 20px; /* إضافة مسافة أعلى النص */
         }
     </style>
 </head>
 <body>
 
-    <span class="material-symbols-outlined">task_alt</span>
-    <p class="message">تم ارسال رسالتك بنجاح</p>
-    <p class="additional-message">سنقوم بنشرها في أقرب وقت .. كن متفائلا</p> <!-- نص إضافي -->
+    <div class="container">
+        <span class="material-symbols-outlined">task_alt</span>
+        <p class="message">تم ارسال رسالتك بنجاح</p>
+        <p class="additional-message">سنقوم بنشرها في أقرب وقت .. كن متفائلا</p> <!-- نص إضافي -->
 
-    <button class="facebook-button" onclick="window.open('https://www.facebook.com/yourpage', '_blank');">تابعنا عبر صفحتنا
-        <span class="material-icons facebook-icon">facebook</span>
-    </button>
+        <button class="facebook-button" onclick="window.open('https://www.facebook.com/yourpage', '_blank');">تابعنا عبر صفحتنا
+            <span class="material-icons facebook-icon">facebook</span>
+        </button>
+    </div>
 
-    <div class="footer">تم إنشاؤه بواسطة bidjad</div> <!-- نص التذييل -->
+ <footer style="background-color: #FFD731; text-align: center; padding: 10px; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1;">
+    <p style="font-size: 14px; margin: 0;">
+        
+        <a href="https://bidjadg.my.canva.site/" style="color: blue; text-decoration: none;">bidjad</a>
+        تم انشاؤه بواسطة
+    </p>
+</footer>
 
 </body>
-  </html>
+</html>
